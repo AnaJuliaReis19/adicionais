@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="description" content="Super Calculadora"/>
+        <meta name="keywords" content="HTML, CSS, JS"/>
+        <meta name="author" content="Alice Cristina"/>
+        <meta charset="UTF-8">
+        <title>Super Calculadora</title>
+        <!-- CSS da page-->
+        <style>
+            /* Tags */
+            html{
+                margin: 0px auto 0px auto;
+            }
+            body{
+                background-color: #111111;
+                margin: 0px auto 0px auto;
+                max-width: 100%;
+            }
+            
+            h1{
+                color: #94ff30;
+                text-align: center;
+            }
+            button{
+                background-color: #94ff30;
+                border-top-left-radius: 15%;
+                border-top-right-radius: 15%;
+                border-bottom-left-radius: 15%;
+                border-bottom-right-radius: 15%;
+                border-right: 10px;
+                padding: 6px 5px 6px 5px;
+            }
+            input{
+                margin: 0px 15px 0px 15px;
+                max-height: 17px;
+            }
+            h4{
+                color: rgb(103, 119, 187);
+                margin: 0px ;
+                text-indent: 2px;
+            }
+
+            /* classes */
+            .entradas{
+                color: #94ff30;
+                display: flex;
+                justify-content: center;
+                margin: 0px auto 0px auto;
+                max-width: 100%;
+            }
+            .entradas-text{
+                margin: 0px 15px 0px 15px;
+            }
+            .results{
+                background-color: #323233;
+                height: 500px;
+                border-top: #585858;
+                border-style: solid;
+                display: flex;
+                justify-content: center;
+            }
+            .results-table{
+                display: flex;
+                justify-content: center;
+                margin: 10px auto 0px auto;
+                max-width: 100%;
+            }
+            .result-line{
+                display: flex;
+                justify-content: center;
+                margin: 0px auto 0px auto;
+                height: 60px;
+                width: 900px;
+            }
+            .results-box{
+                border-style: solid;
+                border-color: #111111;
+                border-width: 1px;
+                height: 60px;
+                width: 300px;
+                padding: 2px;
+            }
+            .result-value{
+                color: beige;
+                margin: 5px auto auto 8px;
+                border: 2px;
+                font-size: 25px; 
+                
+            }
+
+            /* ids */
+
+
+        </style>
+        <!--JS da page-->
+        <script>
+            function main(){
+                var a=parseInt(document.getElementById("A").value);
+                var b=parseInt(document.getElementById("B").value);
+                soma(a,b);
+                subAB(a,b);
+                mult(a,b);
+                potAB(a,b);
+                divAB(a,b);
+                divBA(a,b);
+                subBA(a,b);
+                raizB(b);
+                potBA(a,b);
+                raizA(a);
+                porcAB(a,b);
+                porcBA(a,b);
+                fatA(a);
+                fatB(b);
+                med(a,b);
+            }
+            function soma(a,b){
+                document.getElementById("soma").innerHTML=a+b;
+                
+            }
+            function subAB(a,b){
+                document.getElementById("subAB").innerHTML=a-b;
+            }
+            function mult (a,b){
+                document.getElementById("mult").innerHTML=a*b;
+            }
+            function potAB (a,b){
+                document.getElementById("potAB").innerHTML=Math.pow(a,b);     
+             }
+             function divAB(a,b){
+                document.getElementById("divAB").innerHTML= a/b;
+             }
+             function divBA(a,b){
+                document.getElementById("divBA").innerHTML=b/a;
+             }
+             function subBA (a,b){
+                document.getElementById("subBA").innerHTML=b-a;
+             }
+             function raizB(b){
+                document.getElementById("raizB").innerHTML=Math.sqrt(b);
+             }
+             function potBA (a,b){
+                document.getElementById("potBA").innerHTML=Math.pow(a,b);
+             }
+             function raizA(a){
+                document.getElementById("raizA").innerHTML=Math.sqrt(a);
+             }
+             function porcAB (a,b){
+                document.getElementById("porcAB").innerHTML=a*100/b;
+             }
+             function porcBA (a,b){
+                document.getElementById("porcBA").innerHTML=b*100/a
+             }
+             function fatA(a){
+                var fat=1;
+                for (var i=A;i>0;i--)
+                fat = fat *i;
+                document.getElementById("fatA").innerHTML=(fat);
+             }
+             function fatB(b){
+                var fat=1;
+                for (var i=b;i>0;i--)
+                fat = fat *i;
+                document.getElementById("fatB").innerHTML=(fat);
+             }
+             function med (a,b){
+                document.getElementById("med").innerHTML=a+b/2;
+             }
+
+                
+            //... crie a função para cada caso
+        </script>
+    </head>
+    <body>
+        <header>
+            <br/>
+            <h1>Super Calculadora</h1>
+            <div class="entradas"><div class="entradas-text">Primeiro número (A): </div><input id="A" type="number"/>
+            <div class="entradas-text">Segundo número (B):</div>  <input id="B" type="number"/>   <button onclick="main()">Calcular</button></div>
+        </header>
+        <br/>
+        <div class="results">
+            <div class="results-table">
+                <div class="results-line">
+                    <div class="results-box">
+                        <h4>Soma</h4>
+                        <p class="result-value" id="soma">-</p>
+                    </div>
+                    <div class="results-box">
+                        <h4>Multiplicação</h4>
+                        <p class="result-value" id="mult">-</p>
+                    </div>
+                    <div class="results-box">
+                        <h4>Potência de A na base B</h4>
+                        <p class="result-value" id="potAB">-</p>
+                    </div>
+
+                    <div class="results-box">
+                        <h4>Raiz quadrada de B</h4>
+                        <p class="result-value" id="raizB">-</p>
+                    </div>
+                    <div class="results-box">
+                        <h4>Porcentagem de A em relação a B</h4>
+                        <p class="result-value" id="porcAB">-</p>
+                    </div>                    
+                </div>
+
+
+                <div class="results-line">
+                    <div class="results-box">
+                        <h4>Subtração A-B</h4>
+                        <p class="result-value" id="subAB">-</p>
+                    </div>
+                    <div class="results-box">
+                        <h4>Divisão A/B</h4>
+                        <p class="result-value" id="divAB">-</p>
+                    </div>
+                    <div class="results-box">
+                        <h4>Potência de B na base A</h4>
+                        <p class="result-value" id="potBA">-</p>
+                    </div>
+                    <div class="results-box">
+                        <h4>Fatorial de A</h4>
+                        <p class="result-value" id="fatA">-</p>
+                    </div>
+                    <div class="results-box">
+                        <h4>Porcentagem de B em relação a A</h4>
+                        <p class="result-value" id="porcBA">-</p>
+                    </div>
+                </div>
+
+
+
+                <div class="results-line">
+                    
+                    <div class="results-box">
+                        <h4>Subtração B-A</h4>
+                        <p class="result-value" id="subBA">-</p>
+                    </div>
+                    <div class="results-box">
+                        <h4>Divisão B/A</h4>
+                        <p class="result-value" id="divBA">-</p>
+                    </div>
+                    <div class="results-box">
+                        <h4>Raiz quadrada de A</h4>
+                        <p class="result-value" id="raizA">-</p>
+                    </div>
+                    <div class="results-box">
+                        <h4>Fatorial de B</h4>
+                        <p class="result-value" id="fatB">-</p>
+                    </div>
+                    <div class="results-box">
+                        <h4>Média</h4>
+                        <p class="result-value" id="med">-</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
